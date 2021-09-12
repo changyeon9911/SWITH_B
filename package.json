@@ -1,0 +1,18 @@
+{
+  "name": "swth_b",
+  "version": "1.0.0",
+  "description": "swth backend",
+  "scripts": {
+    "dev": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/changyeon9911/SWITH_B.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/changyeon9911/SWITH_B/issues"
+  },
+  "homepage": "https://github.com/changyeon9911/SWITH_B#readme"
+}
