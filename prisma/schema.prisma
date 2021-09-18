@@ -1,0 +1,77 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Admin {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  username  String   @unique
+  password  String
+  createdat DateTime @default(now())
+}
+
+model Tutor {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  username  String   @unique
+  password  String
+  createdat DateTime @default(now())
+  Class     Class[]
+}
+
+model Stdnt {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  username  String   @unique
+  password  String
+  cpnum     Int      @default(0)
+  createdat DateTime @default(now())
+  Class     Class[]
+}
+
+model Class {
+  id      Int      @id @default(autoincrement())
+  yyyy    Int
+  mm      Int
+  dd      Int
+  order   Int
+  tutor   Tutor    @relation(fields: [tutorId], references: [id])
+  stdnt   Stdnt?   @relation(fields: [stdntId], references: [id])
+  tbook   TBook?   @relation(fields: [tBookId], references: [id])
+  tutorId Int
+  stdntId Int?
+  tBookId Int?
+  FdBack  FdBack[]
+}
+
+model TBook {
+  id          Int      @id @default(autoincrement())
+  type        String
+  name        String
+  description String
+  createdat   DateTime @default(now())
+  Class       Class[]
+}
+
+model CPcode {
+  id        Int      @id @default(autoincrement())
+  code      String   @unique
+  used      Boolean  @default(false)
+  numclass  Int
+  createdat DateTime @default(now())
+}
+
+model FdBack {
+  id      Int    @id @default(autoincrement())
+  class   Class  @relation(fields: [classId], references: [id])
+  classId Int
+  content String
+}

@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "swth backend",
   "scripts": {
-    "dev": ""
+    "dev": "nodemon --exec babel-node server.js",
+    "migrate": "npx prisma migrate dev"
   },
   "repository": {
     "type": "git",
@@ -14,5 +15,19 @@
   "bugs": {
     "url": "https://github.com/changyeon9911/SWITH_B/issues"
   },
-  "homepage": "https://github.com/changyeon9911/SWITH_B#readme"
+  "homepage": "https://github.com/changyeon9911/SWITH_B#readme",
+  "dependencies": {
+    "@prisma/client": "^3.0.2",
+    "apollo-server": "^3.3.0",
+    "dotenv": "^10.0.0",
+    "graphql": "^15.5.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.5",
+    "@babel/node": "^7.15.4",
+    "@babel/preset-env": "^7.15.6",
+    "graphql-tools": "^8.2.0",
+    "nodemon": "^2.0.12",
+    "prisma": "^3.0.2"
+  }
 }
