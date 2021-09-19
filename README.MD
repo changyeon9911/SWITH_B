@@ -3,16 +3,17 @@
 TODO LIST
 
 Admin
--CreateAdmin
--DeleteAdmin
--LoginAdmin
--LogoutAdmin
+0-CreateAdmin
+0-DeleteAdmin
+0-LoginAdmin
+-EditAdmin
+-ViewAdmin
+-ListAdmin
 
 Stdnt(Student)
 -CreateStdnt
 -DeleteStdnt
 -LoginStdnt
--LogoutStdnt
 -AddCPStdnt
 -SubCPStdnt
 -EditStdnt
@@ -23,7 +24,6 @@ Tutor
 -CreateTutor
 -DeleteTutor
 -LoginTutor
--LogoutTutor
 -EditTutor
 -ViewTutor
 -ListTutor

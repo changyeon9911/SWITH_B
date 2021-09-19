@@ -3,7 +3,7 @@ import bcrypt from "bcrypt";
 
 export default {
     Mutation: {
-        CreateAdmin: async(
+        EditAdmin: async(
             _,
             {email, username, password}
             ) => {
