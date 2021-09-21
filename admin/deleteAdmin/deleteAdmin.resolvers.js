@@ -1,12 +1,11 @@
 import client from "../../client";
 import bcrypt from "bcrypt";
+import { adminProtector } from "../admin.utils";
 
 export default {
     Mutation: {
-        DeleteAdmin: async(
-            _,
-            {id, password}
-            ) => {
+        DeleteAdmin: adminProtector(
+            async(_, {id, password}) => {
                     //check if the account is existing
                     const existingAdmin = await client.admin.findFirst({where:{id}});
                     if (!existingAdmin) {
@@ -36,5 +35,6 @@ export default {
                         }
                     }
             }
+        )
     }
 }

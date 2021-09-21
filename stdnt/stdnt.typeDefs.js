@@ -8,6 +8,8 @@ export default gql`
         password: String!
         cpnum: Int!
         createdat: String!
+        classes: [Class]
+        cpcodes: [CPCode]
     }
 `
 

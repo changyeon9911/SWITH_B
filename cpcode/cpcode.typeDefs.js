@@ -7,6 +7,7 @@ export default gql`
         used: Boolean!
         numclass: Int!
         createdat: String!
+        stdnt: Stdnt
     }
 `
 

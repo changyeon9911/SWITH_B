@@ -25,7 +25,7 @@ export default {
                         }
                     }
                     //issue & send token
-                    const token = await jwt.sign({id: existingAdmin.id}, process.env.SECRET_KEY);
+                    const token = await jwt.sign({id: existingAdmin.id, type: "Admin"}, process.env.SECRET_KEY);
                     return {
                         ok: true,
                         token,

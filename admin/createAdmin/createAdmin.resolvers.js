@@ -5,9 +5,14 @@ export default {
     Mutation: {
         CreateAdmin: async(
             _,
-            {email, username, password}
+            {email, username, password, validation}
             ) => {
                 try {
+                    //validation process
+                    const validationOK = (validation === process.env.SECRET_KEY);
+                    if (!validationOK) {
+                        throw new Error("Invalid");
+                    }
                     //check if the email or username is already taken
                     const existingAdmin = await client.admin.findFirst({
                         where:{
@@ -15,7 +20,7 @@ export default {
                         }
                     });
                     if (existingAdmin) {
-                        throw new Error("The username(or Email) is already taken.")
+                        throw new Error("The username(or Email) is already taken.");
                     }
                     //hash the password
                     const uglyPassword = await bcrypt.hash(password, 10);

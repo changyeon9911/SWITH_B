@@ -24,7 +24,7 @@ model Tutor {
   username  String   @unique
   password  String
   createdat DateTime @default(now())
-  Class     Class[]
+  classes   Class[]
 }
 
 model Stdnt {
@@ -34,7 +34,8 @@ model Stdnt {
   password  String
   cpnum     Int      @default(0)
   createdat DateTime @default(now())
-  Class     Class[]
+  classes   Class[]
+  cpcodes   CPcode[]
 }
 
 model Class {
@@ -45,20 +46,20 @@ model Class {
   order   Int
   tutor   Tutor    @relation(fields: [tutorId], references: [id])
   stdnt   Stdnt?   @relation(fields: [stdntId], references: [id])
-  tbook   TBook?   @relation(fields: [tBookId], references: [id])
+  tbook   Tbook?   @relation(fields: [tbookId], references: [id])
   tutorId Int
   stdntId Int?
-  tBookId Int?
-  FdBack  FdBack[]
+  tbookId Int?
+  fdbacks Fdback[]
 }
 
-model TBook {
+model Tbook {
   id          Int      @id @default(autoincrement())
   type        String
   name        String
   description String
   createdat   DateTime @default(now())
-  Class       Class[]
+  classes     Class[]
 }
 
 model CPcode {
@@ -67,9 +68,11 @@ model CPcode {
   used      Boolean  @default(false)
   numclass  Int
   createdat DateTime @default(now())
+  stdnt     Stdnt?   @relation(fields: [stdntId], references: [id])
+  stdntId   Int?
 }
 
-model FdBack {
+model Fdback {
   id      Int    @id @default(autoincrement())
   class   Class  @relation(fields: [classId], references: [id])
   classId Int

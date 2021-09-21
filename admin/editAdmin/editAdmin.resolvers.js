@@ -1,38 +1,38 @@
 import client from "../../client";
 import bcrypt from "bcrypt";
+import { adminProtector } from "../admin.utils";
 
 export default {
     Mutation: {
-        EditAdmin: async(
-            _,
-            {email, username, password}
-            ) => {
-                try {
-                    //check if the email or username is already taken
-                    const existingAdmin = await client.admin.findFirst({
-                        where:{
-                            OR: [{email}, {username}]
+        EditAdmin: adminProtector(
+            async(_, {email, password: newpassword}, {loggedInAdmin}) => {
+                    //variables
+                    const id = loggedInAdmin.id;
+                    let uglyPassword = null;
+                    //hash the password
+                    if (newpassword) {
+                        uglyPassword = await bcrypt.hash(newpassword, 10); 
+                    };
+                    //update & return the Result
+                    const updatedAdmin = await client.admin.update({
+                        where: {
+                            id,
+                        },
+                        data: {
+                            email,
+                            ...(uglyPassword && {password: uglyPassword}),
                         }
                     });
-                    if (existingAdmin) {
-                        throw new Error("The username(or Email) is already taken.")
-                    }
-                    //hash the password
-                    const uglyPassword = await bcrypt.hash(password, 10);
-                    //save & return the Admin
-                    const Admin = await client.admin.create({data:{
-                                                            email,
-                                                            username,
-                                                            password: uglyPassword,}});
-                    return {
-                        ok: true
-                    }                                    
-                } catch (error) {
-                    return {
-                        ok: false,
-                        error: "Can't create an Admin account.",
-                    }
-            }
-            }
+                    if (updatedAdmin.id) {
+                        return {
+                            ok: true
+                        }
+                    } else {
+                        return {
+                            ok: false,
+                            error: "Can't update the Account."
+                        }
+                    }                      
+            }),
     }
 }

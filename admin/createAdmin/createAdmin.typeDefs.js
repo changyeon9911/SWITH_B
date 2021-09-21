@@ -11,6 +11,7 @@ export default gql`
             email: String!
             username: String!
             password: String!
+            validation: String!
         ): CreateAdminResult!,
     }
 `

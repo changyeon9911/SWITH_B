@@ -9,7 +9,7 @@ export default gql`
         order: Int!
         tutor: Tutor!
         stdnt: Stdnt
-        tbook: TBook
+        tbook: Tbook
     }
 `
 
