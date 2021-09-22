@@ -29,11 +29,11 @@ Tutor
 0-EditTutor(Tutor + Admin)
 
 Class
--CreateClass(Tutor + Admin)
--DeleteClass(Tutor + Admin)
--EditClass(Tutor + Admin)
--ViewClass(Participants + Admin)
--ListClass(Participants + Admin)
+0-CreateClass(Tutor + Admin)
+0-DeleteClass(Tutor + Admin)
+0-RegisterClass(Stdnt)
+0-ViewClass(Participants + Admin)
+0-ListClass(Participants + Admin) : Array
 
 CPCode(code, num, used)
 0-CreateCPCode(Admin)
@@ -42,15 +42,15 @@ CPCode(code, num, used)
 0-ListCPCode(Admin)
 
 FdBack(FeedBack)
--CreateFdBack
--DeleteFdBack
--EditFdBack
--ViewFdBack
--ListFdBack
+-CreateFdBack(Tutor + Admin)
+-DeleteFdBack(Admin)
+-EditFdBack(Admin)
+-ViewFdBack(Participants + Admin)
+-ListFdBack(Participants + Admin)
 
 TBook(TextBook)
--CreateTBook
--DeleteTBook
--EditTBook
--ViewTBook
--ListTBook
+-CreateTbook(Admin)
+-DeleteTook(Admin)
+-EditTbook(Admin)
+-ViewTbook
+-ListTbook

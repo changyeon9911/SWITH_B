@@ -7,6 +7,7 @@ export default gql`
         name: String!
         description: String!
         createdat: String!
+        classes: [Class]
     }
 `
 
