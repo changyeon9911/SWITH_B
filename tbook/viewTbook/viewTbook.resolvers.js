@@ -8,7 +8,7 @@ export default {
                     if (!existingTbook.id) {
                         return {
                             ok: false,
-                            error: "Can't find the Textbook.";
+                            error: "Can't find the Textbook."
                         }
                     }
                     return existingTbook;

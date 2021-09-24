@@ -41,6 +41,6 @@ export default {
                         error: "Can't update the Account."
                     }
                 }
-        }
+        })
     }
 }

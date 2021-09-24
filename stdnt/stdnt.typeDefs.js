@@ -9,7 +9,7 @@ export default gql`
         cpnum: Int!
         createdat: String!
         classes: [Class]
-        cpcodes: [CPCode]
+        cpcodes: [CPcode]
     }
 `
 

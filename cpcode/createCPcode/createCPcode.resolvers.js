@@ -1,6 +1,6 @@
 import client from "../../client";
 import bcrypt from "bcrypt";
-import { adminProtector } from "../admin.utils";
+import { adminProtector } from "../../admin/admin.utils";
 
 export default {
     Mutation : {

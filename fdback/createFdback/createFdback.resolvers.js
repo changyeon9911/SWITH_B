@@ -11,7 +11,7 @@ export default {
                     if (!existingClass.id) {
                         return {
                             ok: false,
-                            error: "Can't find the Class.";
+                            error: "Can't find the Class."
                         }
                     }
                     //check if the tutor has a access to the class
@@ -55,7 +55,7 @@ export default {
                     if (!existingClass.id) {
                         return {
                             ok: false,
-                            error: "Can't find the Class.";
+                            error: "Can't find the Class."
                         }
                     }
                     //check if there are no fdbacks yet

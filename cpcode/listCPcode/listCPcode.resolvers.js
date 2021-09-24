@@ -1,5 +1,5 @@
 import client from "../../client";
-import { adminProtector } from "../admin.utils";
+import { adminProtector } from "../../admin/admin.utils";
 
 export default {
     Query: {
@@ -13,6 +13,6 @@ export default {
                     } catch {
                         return null;
                     }
-            });
+            })
     }
 }

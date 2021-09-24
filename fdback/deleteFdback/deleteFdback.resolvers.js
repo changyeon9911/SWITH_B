@@ -11,7 +11,7 @@ export default {
                     if (!existingFdback.id) {
                         return {
                             ok: false,
-                            error: "Can't find the Fdback";
+                            error: "Can't find the Fdback"
                         }
                     }
                     //check if the tutor has access to the class
@@ -42,7 +42,7 @@ export default {
                     if (!existingFdback.id) {
                         return {
                             ok: false,
-                            error: "Can't find the Fdback";
+                            error: "Can't find the Fdback"
                         }
                     }
                     //delete the Fdback

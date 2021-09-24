@@ -17,6 +17,6 @@ export default {
                             stdnts: null,
                         }
                     }
-            });
+            }
     }
 }

@@ -18,6 +18,6 @@ export default {
                         ok: true,
                         admin: existingAdmin,
                     }                                    
-            });
+            })
     }
 }

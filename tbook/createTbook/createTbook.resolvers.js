@@ -10,7 +10,7 @@ export default {
                     if (existingTbook) {
                         return {
                             ok: false,
-                            error: "The name has been already taken.";
+                            error: "The name has been already taken."
                         }
                     }
                     //create the Textbook

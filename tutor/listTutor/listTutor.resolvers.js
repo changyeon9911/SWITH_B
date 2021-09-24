@@ -17,6 +17,6 @@ export default {
                             tutors: null,
                         }
                     }
-            });
+            }
     }
 }

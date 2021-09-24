@@ -1,6 +1,6 @@
 import client from "../../client";
 import { adminProtector } from "../../admin/admin.utils";
-import { tutorProtector } from "../../admin/admin.utils";
+import { tutorProtector } from "../../tutor/tutor.utils";
 
 export default {
     Mutation: {
@@ -11,7 +11,7 @@ export default {
                     if (!existingFdback.id) {
                         return {
                             ok: false,
-                            error: "Can't find the Feedback.";
+                            error: "Can't find the Feedback."
                         }
                     }
                     //check if the user has the access to the class.
@@ -45,7 +45,7 @@ export default {
                     if (!existingFdback.id) {
                         return {
                             ok: false,
-                            error: "Can't find the Feedback.";
+                            error: "Can't find the Feedback."
                         }
                     }
                     //update the Feedback
