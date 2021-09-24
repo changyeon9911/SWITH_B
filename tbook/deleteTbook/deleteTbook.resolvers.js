@@ -15,7 +15,7 @@ export default {
                     }
                     //delete the Textbook
                     const deletedTbook = await client.tbook.delete({where:{id}});
-                    if (!deltedTbook.id) {
+                    if (!deletedTbook.id) {
                         return {
                             ok: false,
                             error: "Can't delete the Textbook"

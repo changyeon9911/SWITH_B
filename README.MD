@@ -42,15 +42,15 @@ CPCode(code, num, used)
 0-ListCPCode(Admin)
 
 FdBack(FeedBack)
--CreateFdBack(Tutor + Admin)
--DeleteFdBack(Admin)
--EditFdBack(Admin)
--ViewFdBack(Participants + Admin)
--ListFdBack(Participants + Admin)
+0-CreateFdBack(Tutor + Admin)
+0-DeleteFdBack(Tutor + Admin)
+0-EditFdBack(Tutor + Admin)
+0-ViewFdBack(Participants + Admin) => ViewClass wrapped
+0-ListFdBack(Participants + Admin) => ListClass wrapped
 
 TBook(TextBook)
--CreateTbook(Admin)
--DeleteTook(Admin)
--EditTbook(Admin)
--ViewTbook
--ListTbook
+0-CreateTbook(Admin)
+0-DeleteTook(Admin)
+0-EditTbook(Admin)
+0-ViewTbook
+0-ListTbook

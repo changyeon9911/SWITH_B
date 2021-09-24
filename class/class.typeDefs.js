@@ -10,6 +10,7 @@ export default gql`
         tutor: Tutor!
         stdnt: Stdnt
         tbook: Tbook
+        fdbacks: [Fdback]
     }
 `
 

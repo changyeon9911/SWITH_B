@@ -11,5 +11,6 @@ export default {
         tbook: ({tbookId}) =>{
             return client.tbook.findUnique({where:{id:tbookId}})
         },
+        fdbacks: ({id}) => client.class.findUnique({where:{id}}).fdbacks(),
     }
 }
