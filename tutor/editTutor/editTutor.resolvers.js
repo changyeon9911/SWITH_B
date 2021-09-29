@@ -5,7 +5,7 @@ import { tutorProtector } from "../tutor.utils";
 export default {
     Mutation: {
         EditTutor: tutorProtector(
-            async(_, {email, password: newpassword}, context) => {
+            async(_, {email, password: newpassword, bio, avatar}, context) => {
                 //variables
                 const loggedInTutor = context.loggedInTutor;
                 let uglyPassword = null;
@@ -16,11 +16,13 @@ export default {
                         ok: false,
                         error: "Can't find the Tutor Account."
                     }     
-                }                
+                }               
                 //hash the password
                 if (newpassword) {
                     uglyPassword = await bcrypt.hash(newpassword, 10); 
-                };                  
+                };
+                //avatar
+                const { filename, createReadStream }    
                 //update & return the Result
                 const updatedTutor = await client.tutor.update({
                     where: {
@@ -29,6 +31,7 @@ export default {
                     data: {
                         email,
                         ...(uglyPassword && {password: uglyPassword}),
+                        bio,
                     }
                 });
                 if (updatedTutor.id) {

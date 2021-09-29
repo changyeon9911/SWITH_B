@@ -10,6 +10,8 @@ export default gql`
         EditTutor(
             email: String
             password: String
+            bio: String
+            avatar: Upload
         ): EditTutorResult!,
     }
 `

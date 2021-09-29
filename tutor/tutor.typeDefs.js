@@ -7,6 +7,8 @@ export default gql`
         username: String!
         password: String!
         createdat: String!
+        bio: String
+        avatar: String
         classes: [Class]
     }
 `

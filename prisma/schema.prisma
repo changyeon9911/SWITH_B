@@ -24,6 +24,8 @@ model Tutor {
   username  String   @unique
   password  String
   createdat DateTime @default(now())
+  bio       String?
+  avatar    String?
   classes   Class[]
 }
 

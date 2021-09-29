@@ -1,6 +1,9 @@
 require("dotenv").config();
-import { ApolloServer, gql } from "apollo-server";
-import schema from "./schema";
+import http from "http";
+import logger from "morgan";
+import express from "express";
+import { ApolloServer } from "apollo-server-express";
+import { typeDefs, resolvers } from "./schema";
 import { getAdmin } from "./admin/admin.utils";
 import { getTutor } from "./tutor/tutor.utils";
 import { getStdnt } from "./stdnt/stdnt.utils";
@@ -10,8 +13,11 @@ import { getStdnt } from "./stdnt/stdnt.utils";
 // Query와 Mutation의 이름과 형식도 기재해주어 오류 방지
 // resolvers: GQL에서 실재 Query와 Mutation 그리고 Subscription의 작동 로직 작성
 
+const PORT = process.env.PORT;
+
 const server = new ApolloServer({
-    schema,
+    typeDefs,
+    resolvers,
     context: async (ctx) => {
         if(ctx.req){
             const StdntOK = await getStdnt(ctx.req.headers.token)
@@ -43,6 +49,8 @@ const server = new ApolloServer({
 });
 //schema를 웹서버에 연결해줌
 
-const PORT = process.env.PORT;
+const app = express();
+app.use(logger("tiny"))
+server.applyMiddleware({app});
 
-server.listen(PORT).then(() => console.log(`server is running on ${PORT}`));
+app.listen({port:PORT}, () => {console.log(`server is running on ${PORT}`)});

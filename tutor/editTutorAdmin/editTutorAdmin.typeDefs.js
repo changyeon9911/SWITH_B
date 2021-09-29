@@ -11,7 +11,9 @@ export default gql`
             id: Int!
             email: String
             password: String
-            adminpassword: String
+            adminpassword: String!
+            bio: String
+            avatar: Upload
         ): EditTutorResult!,
     }
 `
