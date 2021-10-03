@@ -8,6 +8,7 @@ export default gql`
         dd: Int!
         order: Int!
         tutor: Tutor!
+        cancle: Bool!
         stdnt: Stdnt
         tbook: Tbook
         fdbacks: [Fdback]

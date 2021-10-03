@@ -7,7 +7,7 @@ export default {
     Query: {
         ListClassStdnt: stdntProtector(async(_, {}, {loggedInStdnt}) => {
                     try {
-                        const existingClasses = await client.class.findMany({where:{stdntId: loggedInStdnt.id}});
+                        const existingClasses = await client.class.findMany({where:{stdntId: loggedInStdnt.id, cancle: false}});
                         return {
                             ok: true,
                             classes: existingClasses,
@@ -21,7 +21,7 @@ export default {
             }),
         ListClassTutor: tutorProtector(async(_, {}, {loggedInTutor}) => {
                     try {
-                        const existingClasses = await client.class.findMany({where:{tutorId: loggedInTutor.id}});
+                        const existingClasses = await client.class.findMany({where:{tutorId: loggedInTutor.id, cancle: false}});
                         return {
                             ok: true,
                             classes: existingClasses,
@@ -39,6 +39,7 @@ export default {
                             where: {
                                 ...(tutorId && {tutorId}),
                                 ...(stdntId && {stdntId}),
+                                cancle: false,
                             }
                         });
                         return existingClasses;            

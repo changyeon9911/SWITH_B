@@ -46,6 +46,7 @@ model Class {
   mm      Int
   dd      Int
   order   Int
+  cancle  Boolean  @default(false)
   tutor   Tutor    @relation(fields: [tutorId], references: [id])
   stdnt   Stdnt?   @relation(fields: [stdntId], references: [id])
   tbook   Tbook?   @relation(fields: [tbookId], references: [id])
